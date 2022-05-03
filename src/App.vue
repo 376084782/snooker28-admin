@@ -3,30 +3,7 @@
 
 
 <template>
-  <div class="tac">
-    <el-menu
-      active-text-color="#ffd04b"
-      background-color="#545c64"
-      class="menu"
-      default-active="2"
-      text-color="#fff"
-      @open="handleOpen"
-      @close="handleClose"
-      :router="true"
-    >
-      <el-menu-item index="/room">
-        <el-icon><icon-menu /></el-icon>
-        <span>房间配置</span>
-      </el-menu-item>
-      <el-menu-item index="user">
-        <el-icon><icon-menu /></el-icon>
-        <span>用户管理</span>
-      </el-menu-item>
-    </el-menu>
-    <div class="main">
-      <router-view />
-    </div>
-  </div>
+  <router-view />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -46,7 +23,6 @@ export default defineComponent({
   },
   setup() {
     const handleOpen = (key: any, keyPath: any) => {
-      
       console.log(key, keyPath);
     };
     const handleClose = (key: any, keyPath: any) => {

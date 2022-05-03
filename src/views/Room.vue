@@ -77,7 +77,7 @@ export default class Room extends Vue {
       method: "get",
       params: {},
     });
-    this.list = res.data.data;
+    this.list = res;
   }
   mounted() {
     this.getList();

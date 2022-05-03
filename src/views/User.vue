@@ -22,6 +22,11 @@
             ></el-switch>
           </template>
         </el-table-column>
+        <el-table-column label="操作" prop="btn">
+          <template #default="scope">
+            <el-button @change="doKick(scope.row)">踢出</el-button>
+          </template>
+        </el-table-column>
       </el-table>
       <el-pagination
         layout="prev, pager, next"
@@ -35,13 +40,26 @@
 
 <script lang="ts">
 import { doAjax } from "@/utils/ajax";
-import { ElMessageBox } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import { Options, Vue } from "vue-class-component";
 
 @Options({
   components: {},
 })
 export default class User extends Vue {
+  doKick(data: any) {
+    let uid = data.id;
+    ElMessageBox.confirm(`是否确认踢出${data.user_name}`).then(async () => {
+      await doAjax({
+        url: "/user/kick",
+        method: "post",
+        data: {
+          uid,
+        },
+      });
+      ElMessage.success("操作成功！");
+    });
+  }
   pageData = {
     total: 0,
     page: 1,
@@ -49,13 +67,11 @@ export default class User extends Vue {
   list: any[] = [];
   input1 = "";
   async getList(p = 1) {
-    let res: any = await doAjax({
+    let data: any = await doAjax({
       url: "/user/list",
       method: "post",
       data: { pageSize: 15, page: p, userName: this.input1 },
     });
-    let data = res.data;
-    console.log(data)
     this.pageData.total = data.total;
     this.pageData.page = data.page;
     this.list = data.data;
