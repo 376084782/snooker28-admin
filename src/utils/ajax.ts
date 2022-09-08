@@ -3,9 +3,9 @@ import store from "@/store";
 import axios from "axios";
 
 let doAjax = axios.create({
-  // baseURL: 'http://localhost:9020/',
+  baseURL: 'http://localhost:9020/',
   // baseURL: 'http://39.101.162.107:9020/',
-  baseURL: 'http://212.129.234.189:9025/',
+  // baseURL: 'http://212.129.234.189:9025/',
   headers: {}
 });
 
