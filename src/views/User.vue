@@ -16,10 +16,7 @@
         <el-table-column label="金币" prop="assets.golds"></el-table-column>
         <el-table-column label="高概率" prop="flag">
           <template #default="scope">
-            <el-switch
-              @change="toggleCheat(scope.row)"
-              v-model="scope.row.flag"
-            ></el-switch>
+            <el-switch @change="toggleCheat(scope.row)" v-model="scope.row.flag"></el-switch>
           </template>
         </el-table-column>
         <el-table-column label="操作" prop="btn">
@@ -28,12 +25,8 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-pagination
-        layout="prev, pager, next"
-        :total="pageData.total"
-        @current-change="getList"
-        :page-size="10"
-      ></el-pagination>
+      <el-pagination layout="prev, pager, next" :total="pageData.total" @current-change="getList" :page-size="10">
+      </el-pagination>
     </div>
   </el-card>
 </template>

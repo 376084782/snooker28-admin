@@ -86,6 +86,7 @@ export default class Room extends Vue {
     });
     this.flagLoading = false;
     this.listData = res;
+    console.log(res,'resresres')
   }
   count = 0;
   async getCountOnline() {

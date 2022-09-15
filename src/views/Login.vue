@@ -10,9 +10,7 @@
           <el-input v-model="form.password" show-password></el-input>
         </el-form-item>
       </el-form>
-      <el-button @click="doLogin" type="primary" style="width: 400px"
-        >登陆</el-button
-      >
+      <el-button @click="doLogin" type="primary" style="width: 400px">登陆</el-button>
     </div>
   </div>
 </template>
@@ -27,8 +25,8 @@ import store from "@/store";
   components: {},
 })
 export default class Login extends Vue {
-  form = {};
-  mounted() {}
+  form: any = {};
+  mounted() { }
   async doLogin() {
 
     let res: any = await doAjax({

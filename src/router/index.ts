@@ -5,6 +5,10 @@ import Room from '../views/Room.vue'
 import Count from '../views/Count.vue'
 import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
+import Total from '../views/Total.vue'
+import Black from '../views/black.vue'
+
+
 import { doAjax } from '@/utils/ajax'
 import store from '@/store'
 
@@ -14,6 +18,16 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Index',
     component: Index,
     children: [
+      {
+        path: '/black',
+        name: 'Black',
+        component: Black
+      },
+      {
+        path: '/total',
+        name: 'Total',
+        component: Total
+      },
       {
         path: '/count',
         name: 'Count',

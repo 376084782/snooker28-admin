@@ -4,26 +4,36 @@
 
 <template>
   <div class="tac">
-    <el-menu
-      active-text-color="#ffd04b"
-      background-color="#545c64"
-      class="menu"
-      default-active="2"
-      text-color="#fff"
-      @open="handleOpen"
-      @close="handleClose"
-      :router="true"
-    >
+    <el-menu active-text-color="#ffd04b" background-color="#545c64" class="menu" default-active="2" text-color="#fff"
+      @open="handleOpen" @close="handleClose" :router="true">
+      <el-menu-item index="/black">
+        <el-icon>
+          <icon-menu />
+        </el-icon>
+        <span>ip封禁</span>
+      </el-menu-item>
+      <el-menu-item index="/total">
+        <el-icon>
+          <icon-menu />
+        </el-icon>
+        <span>流水查询</span>
+      </el-menu-item>
       <el-menu-item index="/count">
-        <el-icon><icon-menu /></el-icon>
+        <el-icon>
+          <icon-menu />
+        </el-icon>
         <span>数据中心</span>
       </el-menu-item>
       <el-menu-item index="/room">
-        <el-icon><icon-menu /></el-icon>
+        <el-icon>
+          <icon-menu />
+        </el-icon>
         <span>房间配置</span>
       </el-menu-item>
       <el-menu-item index="user">
-        <el-icon><icon-menu /></el-icon>
+        <el-icon>
+          <icon-menu />
+        </el-icon>
         <span>用户管理</span>
       </el-menu-item>
     </el-menu>
@@ -50,7 +60,7 @@ export default defineComponent({
   },
   setup() {
     const handleOpen = (key: any, keyPath: any) => {
-      
+
       console.log(key, keyPath);
     };
     const handleClose = (key: any, keyPath: any) => {
@@ -68,17 +78,20 @@ export default defineComponent({
   height: 100%;
   display: flex;
   flex-direction: row;
+
   .main {
     flex-grow: 1;
     width: 100%;
     height: 100%;
   }
 }
+
 body,
 html {
   height: 100%;
   width: 100%;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
